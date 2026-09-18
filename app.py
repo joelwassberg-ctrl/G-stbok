@@ -1,9 +1,9 @@
 from flask import Flask, redirect, request, render_template_string
-import os, json
+import os, json, datetime
 
 app = Flask(__name__)
 
-FILE_PATH = 'media.data'
+FILE_PATH = 'media.json'
 
 
 def read_data():
@@ -16,14 +16,16 @@ def read_data():
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template_string(open('templates/media.html').read(), media=json.dumps(read_data(), ensure_ascii=False))
+    return render_template_string(open('templates/media.html').read(), media=read_data(), ensure_ascii=False)
 
 
 @app.route('/text-channel', methods=['POST'])
 def write():
     media = read_data()
     media.append({
+        'timestamp': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         'name': request.form.get('name', ''),
+        'topic': request.form.get('topic', ''),
         'message': request.form.get('message', '')
     })
     with open(FILE_PATH, 'w') as file:

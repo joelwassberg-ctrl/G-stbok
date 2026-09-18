@@ -3,15 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="/text-channel" method="post">
-        <input type="text" name="name" placeholder="Enter name">
-        <input type="text" name="message" placeholder="Enter your message">
-        <button type="submit">Write</button>
-    </form>
-    
-    <pre>{{ media }}</pre>
+    <div class="inputField">
+        <form action="/text-channel" method="post">
+            <input type="text" name="name" placeholder="Enter name">
+            <input name="topic" placeholder="Enter a topic name">
+            <textarea name="message" rows="4" cols="30" placeholder="Enter your message"></textarea>
+            <button type="submit">Post</button>
+        </form>
+    </div>
+    <h2 class="comments">| Comments |</h2>
+    {%if media %}
+    <div class="message">
+        <ul>
+            {% for item in media %}
+            <li>
+                {{ item.timestamp }}
+                <br>
+                {{ item.topic }}
+                <br>
+                {{ item.name }}: {{ item.message }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% else %}
+    <p>No messages yet.</p>
+    {% endif %}
 </body>
 </html>

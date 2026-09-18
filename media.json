@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2026-09-18 11:23:26",
+    "name": "Joel",
+    "topic": "Animals",
+    "message": "I like dogs"
+  },
+  {
+    "timestamp": "2026-09-18 11:23:44",
+    "name": "Carl",
+    "topic": "Animals",
+    "message": "I HATE dogs"
+  },
+  {
+    "timestamp": "2026-09-18 11:54:30",
+    "name": "Joel",
+    "topic": "prutt",
+    "message": "jag \u00e4lskar prutt"
+  },
+  {
+    "timestamp": "2026-09-18 11:59:40",
+    "name": "Hej",
+    "topic": "a",
+    "message": "a"
+  }
+]
