@@ -26,4 +26,7 @@ form{
 }
 li{
     padding: 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin: 5%;
 }
